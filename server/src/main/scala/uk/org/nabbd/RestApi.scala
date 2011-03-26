@@ -48,7 +48,7 @@ object RestApi extends RestHelper {
   def sendEmail(to: String, report: BurglaryReport) = {
     // Sending email here...
     val subject = "Burglary report - crime number "+report.reportGuid
-    val url = "http://nabbd.org.uk/reports/"+report.reportGuid
+    val url = "http://nabbd.org.uk/burglaryReports/view?id="+report.reportGuid
     val body = """
         A burglary has been reported!
 
