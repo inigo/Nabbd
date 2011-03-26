@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nabbd version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nabbd.xsd">
-    <burglary userGuid="123456789012345678901234567890ab" reportGuid="123456789012345678901234567890ab" reportDate="2011-03-26T01:03:50Z">
+    <burglary userGuid="abc45678901234567890ab" reportGuid="123123456789012345678901234567890ab" reportDate="2011-03-26T01:03:50Z">
         <details>
             <location>
-                <latitude>45.6</latitude>
-                <longitude>34.9</longitude>
+                <latitude>52.290905</latitude>
+                <longitude>-1.543059</longitude>
                 <accuracy>3</accuracy>
             </location>
         </details>
