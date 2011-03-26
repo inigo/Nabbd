@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="xsi.xsd"/>
+  <xs:element name="nabbd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="burglary"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+      <xs:attribute ref="xsi:noNamespaceSchemaLocation" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="burglary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="details"/>
+        <xs:element ref="items"/>
+      </xs:sequence>
+      <xs:attribute name="reportDate" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="reportGuid" use="required"/>
+      <xs:attribute name="userGuid" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="details">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="reportedBy"/>
+        <xs:element ref="estimatedEarliestTime"/>
+        <xs:element ref="estimatedLatestTime"/>
+        <xs:element ref="latitude"/>
+        <xs:element ref="longitude"/>
+        <xs:element ref="accuracy"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reportedBy" type="xs:string"/>
+  <xs:element name="estimatedEarliestTime" type="xs:NMTOKEN"/>
+  <xs:element name="estimatedLatestTime" type="xs:NMTOKEN"/>
+  <xs:element name="latitude" type="xs:decimal"/>
+  <xs:element name="longitude" type="xs:decimal"/>
+  <xs:element name="accuracy" type="xs:integer"/>
+  <xs:element name="items">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="serial"/>
+        <xs:element ref="smartwater"/>
+        <xs:element ref="barcode"/>
+        <xs:element ref="category"/>
+        <xs:element ref="price"/>
+        <xs:element ref="photos"/>
+        <xs:element ref="notes"/>
+      </xs:sequence>
+      <xs:attribute name="guid"/>
+      <xs:attribute name="itemGuid"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="serial">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:integer">
+          <xs:attribute name="use" type="xs:boolean"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="smartwater">
+    <xs:complexType mixed="true">
+      <xs:attribute name="use" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="barcode">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+      <xs:attribute name="use" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="category" type="xs:string"/>
+  <xs:element name="price">
+    <xs:complexType mixed="true">
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="photos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="photo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="photo">
+    <xs:complexType>
+      <xs:attribute name="dateTaken" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="notes" type="xs:string"/>
+</xs:schema>
