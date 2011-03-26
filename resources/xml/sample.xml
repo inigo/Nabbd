@@ -21,7 +21,7 @@
                 </photos>
             </item>
             <item itemGuid="123456789012345678901234567890ab">
-            	<name>Daniel's bicycle</name>
+            	<name>An expensive laptop</name>
                 <serial>02834982542</serial>
                 <smartwater use="true"></smartwater>
                 <barcode type="upc"></barcode>

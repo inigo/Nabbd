@@ -24,6 +24,7 @@ class Item extends LongKeyedMapper[Item] {
 
   object createdAt extends MappedDateTime(this)
 
+  object burglaryReport extends MappedLongForeignKey(this, BurglaryReport)
 //  override def toXml = <item id={id}>{word}</item>
 }
 

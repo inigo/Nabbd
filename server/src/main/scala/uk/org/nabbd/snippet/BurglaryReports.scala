@@ -21,8 +21,11 @@ class BurglaryReports {
   def list(): CssBind =
     ".line *" #> BurglaryReport.findAll.map(
         w =>
-         ".name *" #> w.name
-       & ".createdAt" #> w.createdAt
+         ".user *" #> w.userGuid
+           & ".createdAt" #> w.createdAt
+       & ".latitude *" #> w.latitude
+       & ".longitude *" #> w.longitude
+       & ".reportedAt *" #> w.reportDate
        & ".delete *" #> ajaxButton("Delete", {() =>
           w.delete_!
           Run("window.location.reload()")
@@ -31,7 +34,7 @@ class BurglaryReports {
 
   def createDummy() : CssBind =
       ".button" #> ajaxButton("Create dummy data", {() =>
-          BurglaryReport.create.name("some name").createdAt(new Date()).save()
+          BurglaryReport.create.userGuid("12345678876543211234567887654321").latitude("12.2123").longitude("5.123123").createdAt(new Date()).save()
           Run("window.location.reload()")
       })
 
