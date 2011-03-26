@@ -2,35 +2,32 @@
 <nabbd version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nabbd.xsd">
     <burglary userGuid="123456789012345678901234567890ab" reportGuid="123456789012345678901234567890ab" reportDate="2011-03-26T01:03Z">
         <details>
-            <reportedBy>Daniel Rendall</reportedBy>
-            <estimatedEarliestTime>2011-03-26T01:03Z</estimatedEarliestTime>
-            <estimatedLatestTime>2011-03-27T01:03Z</estimatedLatestTime>
             <latitude>45.6</latitude>
             <longitude>34.9</longitude>
             <accuracy>3</accuracy>
         </details>
         <items>
             <item itemGuid="123456789012345678901234567890ab">
+            	<name>Daniel's bicycle</name>
                 <serial>02834982542</serial>
                 <smartwater use="true">1234</smartwater>
                 <barcode type="upc">1234</barcode>
                 <category>A category</category>
-                <price type="band">1 - 100</price>
+                <price>100</price>
                 <photos>
-                    <photo dateTaken=""></photo>
+                    <photo dateTaken="2011-03-26T01:03Z"></photo>
                 </photos>
-                <notes>These are some notes</notes>
             </item>
-            <item guid="123456789012345678901234567890ab">
-                <serial use="true">02834982542</serial>
+            <item itemGuid="123456789012345678901234567890ab">
+            	<name>Daniel's bicycle</name>
+                <serial>02834982542</serial>
                 <smartwater use="true"></smartwater>
-                <barcode use="true" type="upc"></barcode>
+                <barcode type="upc"></barcode>
                 <category>A category</category>
-                <price type="band">1 - 100</price>
+                <price>100</price>
                 <photos>
-                    <photo dateTaken=""></photo>
+                    <photo dateTaken="2011-03-26T01:03Z"></photo>
                 </photos>
-                <notes></notes>
             </item>
         </items>
     </burglary>
