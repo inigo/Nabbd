@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="12.0">
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="nabbd.xpr">
+        <file name="nabbd.xsd"/>
+        <file name="sample.xml"/>
+    </projectTree>
+</project>
