@@ -1,0 +1,25 @@
+Enter all my items and details.
+
+Report a robbery - submits it to an email address based on my location? Gives me the phone number of my local police force to call? They give me a reference, which I enter into the phone.
+
+Add in all of my items, using standard Govt reporting categories. Useful reference for me.
+
+In case of a burglary:
+
+Don't Panic!
+
+Talks you through what to do
+
+call my local police force (based on location); they give me a reference, which I enter into the app and then use to submit the details (and photos) of the stolen items.
+
+…get a crime number (report GUID)
+
+Type your crime number in here, identify which items have been stolen, select the items, submit my report.
+
+Send to server, which emails the appropriate police force (based on location of report) with a link to Nabbd. They (at some point) come to the site, log in as "copper" and "kettle", link has the crime number in, they see the report.
+
+They click to download it in appropriate format for their own report. Not enough bobbies out on the beat.
+
+Police commissioner can then log in and say "how are our crime stats looking?" - summary statistics of all of the crimes that have occurred.
+
+I can then log in to a web site to see these items, based on the reference; the police can see an overview of all reported burglaries; the police can also see a summary of the number of reported crimes (as per the data.gov.uk reports).
