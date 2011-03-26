@@ -22,7 +22,7 @@ class BurglaryReports {
     ".line *" #> BurglaryReport.findAll.map(
         w =>
          ".name *" #> w.name
-       & ".createdAt" #> w.createdAt
+       & ".createdAt *" #> w.createdAt
        & ".delete *" #> ajaxButton("Delete", {() =>
           w.delete_!
           Run("window.location.reload()")
