@@ -36,3 +36,6 @@ gae-password.txt
 *.xcworkspace/xcuserdata/
 .DS_Store
 */.DS_Store
+
+# Police properties file with API key
+server/src/main/resources/police.properties
