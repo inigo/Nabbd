@@ -10,6 +10,7 @@ import Helpers._
 import _root_.net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConnectionIdentifier, StandardDBVendor}
 import _root_.java.sql.{Connection, DriverManager}
 import uk.org.nabbd.model.{Victim, BurglaryReport, Item}
+import uk.org.nabbd.RestApi
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -32,7 +33,7 @@ class Boot {
 
     // Use the RestApi object for REST dispatch - this is stateful, but the "S" object is not populated
     // when using the statelessDispatchTable, so the way we're retrieving parameters doesn't work
-//    LiftRules.dispatch.append(RestApi) // stateful -- associated with a servlet container session
+    LiftRules.dispatch.append(RestApi) // stateful -- associated with a servlet container session
 
     // where to search for snippets
     LiftRules.addToPackages("uk.org.nabbd")
@@ -40,7 +41,9 @@ class Boot {
     // Format documented on the Wiki at http://www.assembla.com/wiki/show/liftweb/SiteMap
     def sitemap() = SiteMap(
       Menu(S ? "Welcome") / "index" 
-      , Menu(S ? "Help") / "static" / "help" 
+      , Menu(S ? "Help") / "static" / "help"
+     , Menu(S ? "My Stuff") / "items" / "list"
+     , Menu(S ? "My Reports") / "burglaryReports" / "list"
     )
 
     LiftRules.setSiteMapFunc(() => sitemap())
