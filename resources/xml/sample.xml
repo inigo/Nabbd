@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nabbd version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nabbd.xsd">
+    <burglary userGuid="123456789012345678901234567890ab" reportGuid="123456789012345678901234567890ab" reportDate="2011-03-26T01:03:50Z">
+        <details>
+            <location>
+                <latitude>45.6</latitude>
+                <longitude>34.9</longitude>
+                <accuracy>3</accuracy>
+            </location>
+        </details>
+        <items>
+            <item itemGuid="123456789012345678901234567890ab">
+            	<name>Daniel's bicycle</name>
+                <serial>02834982542</serial>
+                <smartwater use="true">1234</smartwater>
+                <barcode type="upc">1234</barcode>
+                <category>A category</category>
+                <price>100</price>
+                <photos>
+                    <photo dateTaken="2011-03-26T01:03:30Z"></photo>
+                </photos>
+            </item>
+            <item itemGuid="123456789012345678901234567890ab">
+            	<name>Daniel's bicycle</name>
+                <serial>02834982542</serial>
+                <smartwater use="true"></smartwater>
+                <barcode type="upc"></barcode>
+                <category>A category</category>
+                <price>100</price>
+                <photos>
+                    <photo dateTaken="2011-03-26T01:03:40Z"></photo>
+                </photos>
+            </item>
+        </items>
+    </burglary>
+</nabbd>

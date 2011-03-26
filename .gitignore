@@ -19,6 +19,13 @@ project/build/target
 # Other source control
 .svn
 
+*.db
+
+
+# Cloud hosting
+deploy-to-cloudbees.sh
+gae-password.txt
+
 # iOS App
 */build/
 */*.xcodeproj/*.mode1v3
