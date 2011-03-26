@@ -24,6 +24,13 @@
   <xs:element name="details">
     <xs:complexType>
       <xs:sequence>
+        <xs:element ref="location" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="location">
+    <xs:complexType>
+      <xs:sequence>
         <xs:element ref="latitude"/>
         <xs:element ref="longitude"/>
         <xs:element ref="accuracy"/>
