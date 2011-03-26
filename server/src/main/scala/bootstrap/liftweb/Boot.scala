@@ -9,6 +9,7 @@ import _root_.net.liftweb.sitemap.Loc._
 import Helpers._
 import _root_.net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConnectionIdentifier, StandardDBVendor}
 import _root_.java.sql.{Connection, DriverManager}
+import uk.org.nabbd.model.{Victim, BurglaryReport, Item}
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -58,8 +59,9 @@ class Boot {
   }
 
   def createDatabaseTables() = {
-    // Schemifier.schemify(true, Schemifier.infoF _, Phrase)
-    // Schemifier.schemify(true, Schemifier.infoF _, AllowedUser)
+    Schemifier.schemify(true, Schemifier.infoF _, Item)
+    Schemifier.schemify(true, Schemifier.infoF _, BurglaryReport)
+    Schemifier.schemify(true, Schemifier.infoF _, Victim)
   }
 
   /**
