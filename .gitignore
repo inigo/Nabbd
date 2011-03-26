@@ -18,3 +18,13 @@ project/build/target
 
 # Other source control
 .svn
+
+# iOS App
+*/build/
+*/*.xcodeproj/*.mode1v3
+*/*.xcodeproj/*.pbxuser
+*/*.xcodeproj/*.xcworkspace/
+*/*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+.DS_Store
+*/.DS_Store
