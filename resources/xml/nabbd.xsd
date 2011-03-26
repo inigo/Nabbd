@@ -24,18 +24,12 @@
   <xs:element name="details">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="reportedBy"/>
-        <xs:element ref="estimatedEarliestTime"/>
-        <xs:element ref="estimatedLatestTime"/>
         <xs:element ref="latitude"/>
         <xs:element ref="longitude"/>
         <xs:element ref="accuracy"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="reportedBy" type="xs:string"/>
-  <xs:element name="estimatedEarliestTime" type="xs:NMTOKEN"/>
-  <xs:element name="estimatedLatestTime" type="xs:NMTOKEN"/>
   <xs:element name="latitude" type="xs:decimal"/>
   <xs:element name="longitude" type="xs:decimal"/>
   <xs:element name="accuracy" type="xs:integer"/>
@@ -49,27 +43,19 @@
   <xs:element name="item">
     <xs:complexType>
       <xs:sequence>
+        <xs:element ref="name"/>
         <xs:element ref="serial"/>
         <xs:element ref="smartwater"/>
         <xs:element ref="barcode"/>
         <xs:element ref="category"/>
         <xs:element ref="price"/>
         <xs:element ref="photos"/>
-        <xs:element ref="notes"/>
       </xs:sequence>
-      <xs:attribute name="guid"/>
-      <xs:attribute name="itemGuid"/>
+      <xs:attribute name="itemGuid" use="required"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="serial">
-    <xs:complexType>
-      <xs:simpleContent>
-        <xs:extension base="xs:integer">
-          <xs:attribute name="use" type="xs:boolean"/>
-        </xs:extension>
-      </xs:simpleContent>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="serial" type="xs:integer"/>
   <xs:element name="smartwater">
     <xs:complexType mixed="true">
       <xs:attribute name="use" use="required" type="xs:boolean"/>
@@ -78,15 +64,10 @@
   <xs:element name="barcode">
     <xs:complexType mixed="true">
       <xs:attribute name="type" use="required" type="xs:NCName"/>
-      <xs:attribute name="use" type="xs:boolean"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="category" type="xs:string"/>
-  <xs:element name="price">
-    <xs:complexType mixed="true">
-      <xs:attribute name="type" use="required" type="xs:NCName"/>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="price" type="xs:integer"/>
   <xs:element name="photos">
     <xs:complexType>
       <xs:sequence>
@@ -96,8 +77,7 @@
   </xs:element>
   <xs:element name="photo">
     <xs:complexType>
-      <xs:attribute name="dateTaken" use="required"/>
+      <xs:attribute name="dateTaken" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="notes" type="xs:string"/>
 </xs:schema>
