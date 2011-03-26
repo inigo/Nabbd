@@ -24,6 +24,7 @@ project/build/target
 
 # Cloud hosting
 deploy-to-cloudbees.sh
+local.deploy.properties
 gae-password.txt
 
 # iOS App
@@ -35,3 +36,6 @@ gae-password.txt
 *.xcworkspace/xcuserdata/
 .DS_Store
 */.DS_Store
+
+# Police properties file with API key
+server/src/main/resources/police.properties

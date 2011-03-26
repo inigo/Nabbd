@@ -1,0 +1,174 @@
+<forces>
+	<force id="avon-and-somerset" name="Avon and Somerset Constabulary">
+		<phone>0845 456 7000</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="bedfordshire" name="Bedfordshire Police">
+		<phone>01234 841 212</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="cambridgeshire" name="Cambridgeshire Constabulary">
+		<phone>0345 456 4564</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="cheshire" name="Cheshire Constabulary">
+		<phone>0845 458 0000</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="city-of-london" name="City of London Police">
+		<phone>020 7601 2222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="cleveland" name="Cleveland Police">
+		<phone>01642 326 326</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="cumbria" name="Cumbria Constabulary">
+		<phone>0845 33 00 247</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="derbyshire" name="Derbyshire Constabulary">
+		<phone>0345 123 33 33</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="devon-and-cornwall" name="Devon and Cornwall Constabulary">
+		<phone>08452 777 444</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="dorset" name="Dorset Police">
+		<phone>01305 222 222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="durham" name="Durham Constabulary">
+		<phone>0345 60 60 365</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="dyfed-powys" name="Dyfed-Powys Police">
+		<phone>01267 222 020</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="essex" name="Essex Police">
+		<phone>0300 333 4444</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="gloucestershire" name="Gloucestershire Constabulary">
+		<phone>0845 090 1234</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="greater-manchester" name="Greater Manchester Police">
+		<phone>0161 872 5050</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="gwent" name="Gwent Police">
+		<phone>0163 383 8111</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="hampshire" name="Hampshire Constabulary">
+		<phone>0845 045 4545</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="hertfordshire" name="Hertfordshire Constabulary">
+		<phone>0845 3300 222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="humberside" name="Humberside Police">
+		<phone>0845 60 60 222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="kent" name="Kent Police">
+		<phone>01622 690 690</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="lancashire" name="Lancashire Constabulary">
+		<phone>08451 25 35 45</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="leicestershire" name="Leicestershire Constabulary">
+		<phone>0116 222 2222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="lincolnshire" name="Lincolnshire Police">
+		<phone>0300 111 0300</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="merseyside" name="Merseyside Police">
+		<phone>0151 709 6010</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="metropolitan" name="Metropolitan Police">
+		<phone>0300 123 1212</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="norfolk" name="Norfolk Constabulary">
+		<phone>0845 456 4567</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="northamptonshire" name="Northamptonshire Police">
+		<phone>03000 111 222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="northumbria" name="Northumbria Police">
+		<phone>03456 043 043</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="north-wales" name="North Wales Police">
+		<phone>0845 607 1002</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="north-yorkshire" name="North Yorkshire Police">
+		<phone>0845 60 60 24 7</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="nottinghamshire" name="Nottinghamshire Police">
+		<phone>0300 300 99 99</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="south-wales" name="South Wales Police">
+		<phone>01656 655 555</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="south-yorkshire" name="South Yorkshire">
+		<phone>0114 220 2020</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="staffordshire" name="Staffordshire Police">
+		<phone>0300 123 4455</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="suffolk" name="Suffolk Constabulary">
+		<phone>01473 613 500</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="surrey" name="Surrey Police">
+		<phone>0845 125 2222</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="sussex" name="Sussex Police">
+		<phone>0845 60 70 999</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="thames-valley" name="Thames Valley Police">
+		<phone>0845 8 505 505</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="warwickshire" name="Warwickshire Police">
+		<phone>01926 415 000</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="west-mercia" name="West Mercia Police">
+		<phone>0300 333 3000</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="west-midlands" name="West Midlands Police">
+		<phone>0345 113 5000</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="west-yorkshire" name="West Yorkshire Police">
+		<phone>0845 606 0606</phone>
+		<email>police@addey.com</email>
+	</force>
+	<force id="wiltshire" name="Wiltshire Police">
+		<phone>0845 408 7000</phone>
+		<email>police@addey.com</email>
+	</force>
+</forces>

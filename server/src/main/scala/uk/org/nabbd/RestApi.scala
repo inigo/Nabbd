@@ -24,11 +24,20 @@ object RestApi extends RestHelper {
   def addReport(text: String) = {
     try {
       val xml = XML.loadString(text)
-      BurglaryReport.parseReport(xml)
+      val report: BurglaryReport = BurglaryReport.parseReport(xml)
+
+      val force = PoliceFinder.lookup(report.latitude, report.longitude)
+      sendEmail(force.email, report)
+
       <success/>
     } catch {
       case e: Exception => <failed>{ e.getMessage }</failed>
     }
+  }
+
+  def sendEmail(to: String, report: BurglaryReport) = {
+    // Sending email here...
+
   }
 
 }
