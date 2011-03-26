@@ -46,6 +46,7 @@ class Boot {
       , Menu(S ? "Help") / "static" / "help"
       , Menu(S ? "My Stuff") / "items" / "list"
       , Menu(S ? "My Reports") / "burglaryReports" / "list"
+      , Menu(S ? "Commissioner Reports") / "commissionerReports" / "list"
       , Menu(S ? "Report") / "burglaryReports" / "view"
     )
 
