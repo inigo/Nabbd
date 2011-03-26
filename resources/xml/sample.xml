@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nabbd version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nabbd.xsd">
-    <burglary userGuid="123456789012345678901234567890ab" reportGuid="123456789012345678901234567890ab" reportDate="2011-03-26T01:03Z">
+    <burglary userGuid="123456789012345678901234567890ab" reportGuid="123456789012345678901234567890ab" reportDate="2011-03-26T01:03:50Z">
         <details>
             <location>
                 <latitude>45.6</latitude>
@@ -17,7 +17,7 @@
                 <category>A category</category>
                 <price>100</price>
                 <photos>
-                    <photo dateTaken="2011-03-26T01:03Z"></photo>
+                    <photo dateTaken="2011-03-26T01:03:30Z"></photo>
                 </photos>
             </item>
             <item itemGuid="123456789012345678901234567890ab">
@@ -28,7 +28,7 @@
                 <category>A category</category>
                 <price>100</price>
                 <photos>
-                    <photo dateTaken="2011-03-26T01:03Z"></photo>
+                    <photo dateTaken="2011-03-26T01:03:40Z"></photo>
                 </photos>
             </item>
         </items>

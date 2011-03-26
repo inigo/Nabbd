@@ -31,18 +31,18 @@ class BurglaryReportTest extends SpecificationWithJUnit with DatabaseSetup {
                 <category>A category</category>
                 <price>100</price>
                 <photos>
-                    <photo dateTaken="2011-03-26T01:03Z"></photo>
+                    <photo dateTaken="2011-03-26T01:03:30Z"></photo>
                 </photos>
             </item>
             <item itemGuid="123456789012345678901234567890ac">
-            	<name>Daniel's bicycle</name>
+            	<name>An expensive laptop</name>
                 <serial>02834982542</serial>
-                <smartwater use="true"></smartwater>
+                <smartwater use="false"></smartwater>
                 <barcode type="upc"></barcode>
-                <category>A category</category>
-                <price>100</price>
+                <category>Expensive things</category>
+                <price>900</price>
                 <photos>
-                    <photo dateTaken="2011-03-26T01:03Z"></photo>
+                    <photo dateTaken="2011-02-23T01:03:40Z"></photo>
                 </photos>
             </item>
         </items>
