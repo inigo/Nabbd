@@ -63,7 +63,7 @@ class Boot {
     createDatabaseTables()
 
     val myprops = new Properties()
-    myprops.load(this.getClass.getResourceAsStream("nabbd.properties"))
+    myprops.load(this.getClass.getResourceAsStream("/nabbd.properties"))
     configMailer(myprops.getProperty("mail.server"), myprops.getProperty("mail.username"), myprops.getProperty("mail.password"))
   }
 
