@@ -9,7 +9,7 @@
 /* Body */
 
 body {
-   background: #d06060;
+   background: #6060d0;
    font-family: Lucida Sans, Verdana, sans-serif;
 }
 
@@ -17,9 +17,9 @@ body {
    background: #ffffff;
    margin: 1em;
    padding: 0.3em 1em 1em 1em;
-   box-shadow: 4px 4px 3px 3px #966;
-   -moz-box-shadow: 4px 4px 3px 3px #966;
-   -webkit-box-shadow: 4px 4px 3px 3px #966;
+   box-shadow: 4px 4px 3px 3px #669;
+   -moz-box-shadow: 4px 4px 3px 3px #669;
+   -webkit-box-shadow: 4px 4px 3px 3px #669;
 }
 
 /* Title */
@@ -171,4 +171,8 @@ button:active {
     -moz-box-shadow: 0 1px 0 0 #FF9999 inset;
     -webkit-box-shadow: 0 1px 0 0 #FF9999 inset;
     text-shadow: 0 1px 1px black;
+}
+
+h2 {
+  padding-top: 10px;
 }
