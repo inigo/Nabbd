@@ -22,12 +22,12 @@ class Items {
     ".line *" #> Item.findAll.map(
         w =>
          ".name *" #> w.name
-       & ".category" #> w.category
-       & ".serial" #> w.serial
-       & ".smartwater" #> w.smartwater
-       & ".barcode" #> w.barcode
-       & ".price" #> w.price
-       & ".isStolen" #> w.isStolen
+       & ".category *" #> w.category
+       & ".serial *" #> w.serial
+       & ".smartwater *" #> w.smartwater
+       & ".barcode *" #> w.barcode
+       & ".price *" #> w.price
+       & ".isStolen *" #> w.isStolen
        & ".delete *" #> ajaxButton("Delete", {() =>
           w.delete_!
           Run("window.location.reload()") // Runs arbitrary JavaScript

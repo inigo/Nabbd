@@ -18,12 +18,12 @@ class BurglaryReport extends LongKeyedMapper[BurglaryReport] {
 
   def primaryKeyField = id
   object id extends MappedLongIndex(this)
-  object userGuid extends MappedString(this, 32)
-  object reportGuid extends MappedString(this, 32)
+  object userGuid extends MappedString(this, 50)
+  object reportGuid extends MappedString(this, 50)
   object reportDate extends MappedDateTime(this)
-  object latitude extends MappedString(this, 20)
-  object longitude extends MappedString(this, 20)
-  object accuracy extends MappedString(this, 20)
+  object latitude extends MappedString(this, 50)
+  object longitude extends MappedString(this, 50)
+  object accuracy extends MappedString(this, 50)
   object createdAt extends MappedDateTime(this)
 
   def items = Item.findAll(By(Item.burglaryReport, this.id))

@@ -1,11 +1,18 @@
 <div class="lift:surround?with=default;at=content">
 
     <p>
-        Welcome to Nabbd
+        Welcome to Nabbd.
     </p>
-    <div id="burglaryReport" class="lift:burglaryReport.submit">
 
-    </div>
+    <p>
+        Enter sample XML in the form beneath:
+    </p>
+
+    <form action="/api/BurglaryReport" method="POST">
+        <textarea rows="50" cols="50" name="report" id="report"></textarea>
+        <input type="submit"/>
+    </form>
+
 
 </div>
 
