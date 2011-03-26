@@ -7,17 +7,15 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 /**
- * @todo Add some documentation!
+ * @todo Add some documentation!Fixed up the fields in the BurglaFixed up the fields in the BurglaryReport class and resolved differencesryReport class and resolved differences
  *
  * @author Inigo Surguy
  * @created 26/03/2011 11:47
  */
 
-class BurglaryReport extends LongKeyedMapper[BurglaryReport] {
+class BurglaryReport extends LongKeyedMapper[BurglaryReport] with IdPK {
   def getSingleton = BurglaryReport
 
-  def primaryKeyField = id
-  object id extends MappedLongIndex(this)
   object userGuid extends MappedString(this, 50)
   object reportGuid extends MappedString(this, 50)
   object reportDate extends MappedDateTime(this)
@@ -36,7 +34,7 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
   val log = LoggerFactory.getLogger(BurglaryReport.getClass);
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss")
 
-  def parseReport(aReport : Node) = {
+  def parseReport(aReport : Node) : BurglaryReport = {
     val now = new Date
     aReport match {
       case <nabbd>{contents @ _* }</nabbd> => {
@@ -58,7 +56,8 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
           .longitude(longitude)
           .accuracy(accuracy)
           .createdAt(now)
-          .save()
+
+        burglary.save()
 
         val items = (burglaryEl \ "items").head
 
@@ -76,6 +75,7 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
 
           val item = Item.create
             .name(name)
+            .reportGuid(reportGuid)
             .category(category)
             .serial(serial)
             .smartwater(smartwater)
@@ -84,8 +84,12 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
             .isStolen(true)
             .createdAt(now)
             .save()
-        }
 
+        }
+        burglary
+      }
+      case _ => {
+        null
       }
     }
   }

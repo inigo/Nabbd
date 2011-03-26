@@ -8,12 +8,11 @@ import net.liftweb.mapper._
  * @author Inigo Surguy
  * @created 26/03/2011 11:47
  */
-class Item extends LongKeyedMapper[Item] {
+class Item extends LongKeyedMapper[Item] with IdPK {
   def getSingleton = Item
 
-  def primaryKeyField = id
-  object id extends MappedLongIndex(this)
   object name extends MappedString(this, 50)
+  object reportGuid extends MappedString(this, 50)
   object category extends MappedString(this, 50)
   object serial extends MappedString(this, 50)
   object smartwater extends MappedString(this, 50)
