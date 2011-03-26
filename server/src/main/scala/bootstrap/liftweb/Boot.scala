@@ -44,8 +44,9 @@ class Boot {
     def sitemap() = SiteMap(
       Menu(S ? "Welcome") / "index" 
       , Menu(S ? "Help") / "static" / "help"
-     , Menu(S ? "My Stuff") / "items" / "list"
-     , Menu(S ? "My Reports") / "burglaryReports" / "list"
+      , Menu(S ? "My Stuff") / "items" / "list"
+      , Menu(S ? "My Reports") / "burglaryReports" / "list"
+      , Menu(S ? "Report") / "burglaryReports" / "view"
     )
 
     LiftRules.setSiteMapFunc(() => sitemap())
