@@ -4,9 +4,9 @@
   <groupId>uk.org.nabbd</groupId>
   <artifactId>server</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>server</name>
+  <name>nabbd</name>
   <description>[description text]</description>
-  <url>https://github.com/inigo/server</url>
+  <url>https://github.com/inigo/nabbd</url>
   <packaging>jar</packaging>
 
   <properties>
@@ -21,6 +21,37 @@
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
     </dependency>
+
+
+      <!-- Database -->
+      <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>1.2.138</version>
+          <scope>runtime</scope>
+      </dependency>
+
+      <!-- Lift -->
+      <dependency>
+          <groupId>net.liftweb</groupId>
+          <artifactId>lift-mapper_2.8.1</artifactId>
+          <version>2.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>net.liftweb</groupId>
+          <artifactId>lift-openid_2.8.1</artifactId>
+          <version>2.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>2.5</version>
+          <scope>provided</scope>
+      </dependency>
+
+
     
     <!-- Logging -->
     <dependency>
@@ -49,6 +80,25 @@
         <version>1.6.7</version>
         <scope>test</scope>
     </dependency>
+
+
+  <dependency>
+      <groupId>org.mortbay.jetty</groupId>
+      <artifactId>jetty</artifactId>
+      <version>6.1.25</version>
+      <scope>test</scope>
+  </dependency>
+
+  <!-- for LiftConsole -->
+  <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-compiler</artifactId>
+      <version>${scala.version}</version>
+      <scope>test</scope>
+  </dependency>
+
+
+
   </dependencies>
 
 
@@ -149,6 +199,75 @@
                 </dependencies>
             </plugin>
 
+
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.25</version>
+                <configuration>
+                    <contextPath>/</contextPath>
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>jrebel-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-rebel-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.2</version>
+                <executions>
+                    <execution>
+                        <id>default-copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src</directory>
+                                    <includes>
+                                        <include>packageLinkDefs.properties</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
    
@@ -183,24 +302,14 @@
         </profile>
     </profiles>
 
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <developers>
         <developer>
             <name>Inigo Surguy</name>
             <url>http://surguy.net/</url>
+        </developer>
+        <developer>
+            <name>Daniel Rendall</name>
+            <url>http://danielrendall.co.uk</url>
         </developer>
     </developers>
 
@@ -212,9 +321,9 @@
     </licenses>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:inigo/server.git</developerConnection>
-        <connection>scm:git:git@github.com:inigo/server.git</connection>
-        <url>git@github.com:inigo/server.git</url>
+        <developerConnection>scm:git:git@github.com:inigo/nabbd.git</developerConnection>
+        <connection>scm:git:git@github.com:inigo/nabbd.git</connection>
+        <url>git@github.com:inigo/nabbd.git</url>
     </scm>
 
 </project>
