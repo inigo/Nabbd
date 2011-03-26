@@ -26,6 +26,8 @@ class BurglaryReport extends LongKeyedMapper[BurglaryReport] {
   object accuracy extends MappedString(this, 50)
   object createdAt extends MappedDateTime(this)
 
+  def items = Item.findAll(By(Item.burglaryReport, this.id))
+
 //  override def toXml = <item id={id}>{word}</item>
 }
 

@@ -22,6 +22,7 @@ class BurglaryReports {
     ".line *" #> BurglaryReport.findAll.map(
         w =>
          ".user *" #> w.userGuid
+           & ".createdAt" #> w.createdAt
        & ".latitude *" #> w.latitude
        & ".longitude *" #> w.longitude
        & ".reportedAt *" #> w.reportDate
@@ -33,7 +34,7 @@ class BurglaryReports {
 
   def createDummy() : CssBind =
       ".button" #> ajaxButton("Create dummy data", {() =>
-          BurglaryReport.create.latitude("12.2123").longitude("5.123123").createdAt(new Date()).save()
+          BurglaryReport.create.userGuid("12345678876543211234567887654321").latitude("12.2123").longitude("5.123123").createdAt(new Date()).save()
           Run("window.location.reload()")
       })
 
