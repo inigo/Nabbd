@@ -3,11 +3,11 @@ package uk.org.nabbd.snippet
 import net.liftweb.util.CssBind
 import net.liftweb.http.js.JsCmds.Run
 import net.liftweb.util.BindHelpers._
-import net.liftweb.http.SHtml
 import java.util.Date
 import _root_.net.liftweb.http.SHtml._
 import uk.org.nabbd.model.{Item, BurglaryReport}
 import net.liftweb.mapper.By
+import net.liftweb.http.{S, SHtml}
 
 
 /**
@@ -22,7 +22,7 @@ class BurglaryReports {
   def list(): CssBind =
     ".line *" #> BurglaryReport.findAll.map(
         w =>
-         ".user *" #> w.userGuid
+         ".user *" #> w.reportGuid
            & ".createdAt" #> w.createdAt
        & ".latitude *" #> w.latitude
        & ".longitude *" #> w.longitude
@@ -39,12 +39,14 @@ class BurglaryReports {
           Run("window.location.reload()")
       })
 
-  def viewDetails(): CssBind =
-      ".reportedAt *" #> BurglaryReport.findAll.last.reportDate
+  def viewDetails(): CssBind = {
+    val id = S.param("id").get
+    ".reportedAt *" #> BurglaryReport.find(By(BurglaryReport.reportGuid, id)).get.reportDate
+  }
 
   def viewItems(): CssBind = {
-    val reportId = BurglaryReport.findAll.last.reportGuid
-    ".line *" #> Item.findAll(By(Item.reportGuid, reportId) ).map(
+    val id = S.param("id").get
+    ".line *" #> Item.findAll(By(Item.reportGuid, id) ).map(
         w =>
          ".name *" #> w.name
        & ".category *" #> w.category
@@ -60,8 +62,10 @@ class BurglaryReports {
     )
   }
 
-  def viewLocation(): CssBind =
-        ".lat *" #> BurglaryReport.findAll.last.latitude
+  def viewLocation(): CssBind = {
+    val id = S.param("id").get
+    ".lat *" #> BurglaryReport.findAll.last.latitude
 //        & ".long *" #> BurglaryReport.findAll.last.longitude
+  }
 
 }
