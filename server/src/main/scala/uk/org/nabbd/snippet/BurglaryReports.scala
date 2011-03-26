@@ -44,7 +44,7 @@ class BurglaryReports {
 
   def viewItems(): CssBind = {
     val reportId = BurglaryReport.findAll.last.reportGuid
-    ".line *" #> Item.find(By(Item.reportGuid, reportId) ).map(
+    ".line *" #> Item.findAll(By(Item.reportGuid, reportId) ).map(
         w =>
          ".name *" #> w.name
        & ".category *" #> w.category
