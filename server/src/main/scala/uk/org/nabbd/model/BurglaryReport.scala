@@ -18,7 +18,12 @@ class BurglaryReport extends LongKeyedMapper[BurglaryReport] {
 
   def primaryKeyField = id
   object id extends MappedLongIndex(this)
-  object name extends MappedString(this, 50)
+  object userGuid extends MappedString(this, 32)
+  object reportGuid extends MappedString(this, 32)
+  object reportDate extends MappedDateTime(this)
+  object latitude extends MappedString(this, 20)
+  object longitude extends MappedString(this, 20)
+  object accuracy extends MappedString(this, 20)
   object createdAt extends MappedDateTime(this)
 
 //  override def toXml = <item id={id}>{word}</item>
@@ -33,19 +38,27 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
     val now = new Date
     aReport match {
       case <nabbd>{contents @ _* }</nabbd> => {
-        val burglary = contents \\ "burglary"
-        log.debug(burglary.toString)
-        val userGuid = (burglary \ "@userGuid").toString
-        val reportGuid = (burglary \ "@reportGuid").toString
-        val reportDate = dateFormat.parse((burglary \ "@reportDate").toString)
-        val details = (burglary \ "details").head
+        val burglaryEl = contents \\ "burglary"
+        val userGuid = (burglaryEl \ "@userGuid").toString
+        val reportGuid = (burglaryEl \ "@reportGuid").toString
+        val reportDate = dateFormat.parse((burglaryEl \ "@reportDate").toString)
+        val details = (burglaryEl \ "details").head
 
         val latitude = getLocationValue(details, "latitude")
         val longitude = getLocationValue(details, "longitude")
         val accuracy = getLocationValue(details, "accuracy")
 
+        val burglary = BurglaryReport.create
+          .userGuid(userGuid)
+          .reportGuid(reportGuid)
+          .reportDate(reportDate)
+          .latitude(latitude)
+          .longitude(longitude)
+          .accuracy(accuracy)
+          .createdAt(now)
+          .save()
 
-        val items = (burglary \ "items").head
+        val items = (burglaryEl \ "items").head
 
         for (itemEl <- (items \ "item")) {
           val name = (itemEl \ "name").text
@@ -59,7 +72,16 @@ object BurglaryReport extends BurglaryReport with LongKeyedMetaMapper[BurglaryRe
 
           log.debug("Name " + name + " Serial " + serial + " SmartwaterUse" + smartwaterUse + " Smartwater " + smartwater + " BarcodeType " + barcodeType + " Barcode " + barcode + " Price " + price)
 
-          val item = Item.create.name(name).category(category).serial(serial).smartwater(smartwater).barcode(barcode).price(price).isStolen(true).createdAt(now).save()
+          val item = Item.create
+            .name(name)
+            .category(category)
+            .serial(serial)
+            .smartwater(smartwater)
+            .barcode(barcode)
+            .price(price)
+            .isStolen(true)
+            .createdAt(now)
+            .save()
         }
 
       }
