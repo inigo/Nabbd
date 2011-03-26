@@ -4,6 +4,7 @@ import model.BurglaryReport
 import net.liftweb.http.S
 import xml.XML
 import net.liftweb.http.rest.RestHelper
+import net.liftweb.util.Mailer
 
 /**
  * Provides a REST API for generating new data.
@@ -37,7 +38,14 @@ object RestApi extends RestHelper {
 
   def sendEmail(to: String, report: BurglaryReport) = {
     // Sending email here...
+    val subject = "Burglary report - crime number "+report.reportGuid
+    val url = "http://nabbd.org.uk/reports/"+report.reportGuid
+    val body = """
+        A burglary has been reported!
 
+        Go to %s to view the details.
+        """.format(url)
+    Mailer.sendMail(Mailer.From("nabbd@nabbd.org.uk"), Mailer.Subject(subject), Mailer.To(to), Mailer.PlainMailBodyType(body))
   }
 
 }

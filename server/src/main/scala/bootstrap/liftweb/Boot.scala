@@ -11,6 +11,8 @@ import _root_.net.liftweb.mapper.{DB, ConnectionManager, Schemifier, DefaultConn
 import _root_.java.sql.{Connection, DriverManager}
 import uk.org.nabbd.model.{Victim, BurglaryReport, Item}
 import uk.org.nabbd.RestApi
+import javax.mail.{PasswordAuthentication, Authenticator}
+import java.util.Properties
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -59,12 +61,27 @@ class Boot {
     S.addAround(DB.buildLoanWrapper)
 
     createDatabaseTables()
+
+    val myprops = new Properties()
+    myprops.load(this.getClass.getResourceAsStream("nabbd.properties"))
+    configMailer(myprops.getProperty("mail.server"), myprops.getProperty("mail.username"), myprops.getProperty("mail.password"))
   }
 
   def createDatabaseTables() = {
     Schemifier.schemify(true, Schemifier.infoF _, Item)
     Schemifier.schemify(true, Schemifier.infoF _, BurglaryReport)
     Schemifier.schemify(true, Schemifier.infoF _, Victim)
+  }
+
+  def configMailer(host: String, user: String, password: String) {
+    // Enable TLS support
+    System.setProperty("mail.smtp.starttls.enable","true");
+    // Set the host name
+    System.setProperty("mail.smtp.host", host) // Enable authentication
+    System.setProperty("mail.smtp.auth", "true") // Provide a means for authentication. Pass it a Can, which can either be Full or Empty
+    Mailer.authenticator = Full(new Authenticator {
+      override def getPasswordAuthentication = new PasswordAuthentication(user, password)
+    })
   }
 
   /**
