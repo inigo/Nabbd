@@ -1,6 +1,18 @@
 <div class="lift:surround?with=default;at=content">
   <h2>The REST API</h2>
   <p>
-      Send a POST to /api/BurglaryReport?report=<a href="/static/nabbd.xsd">&lt;Valid XML for burglary report&gt;</a>
+      To report a crime, send a POST to /api/BurglaryReport?report=<a href="/static/nabbd.xsd">&lt;Valid XML for burglary report&gt;</a>
   </p>
+  <p>
+      To find the phone number for a police force, send a GET to /api/PolicePhone?lat={latitude}&amp;long={longitude}
+  </p>
+
+    <p>
+        For testing, enter sample XML in the form beneath:
+    </p>
+
+    <form action="/api/BurglaryReport" method="POST">
+        <textarea rows="20" cols="60" name="report" id="report"></textarea>
+        <input type="submit"/>
+    </form>
 </div>

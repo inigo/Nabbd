@@ -22,7 +22,7 @@ class BurglaryReports {
   def list(): CssBind =
     ".line *" #> BurglaryReport.findAll.map(
         w =>
-         ".user *" #> w.reportGuid
+         ".user *" #> <a href={ "view?id="+w.reportGuid }>{ w.reportGuid }</a>
            & ".createdAt" #> w.createdAt
        & ".latitude *" #> w.latitude
        & ".longitude *" #> w.longitude

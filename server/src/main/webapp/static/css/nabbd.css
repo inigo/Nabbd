@@ -32,7 +32,7 @@ h1 {
 
 /* Menu */
 #menu {
-  background: #fee;
+  background: #eef;
   padding: 0.2em 0.2em 0em 0.2em ;
 
 }
@@ -42,11 +42,11 @@ h1 {
 }
 
 #menu span {
-  background: #fdd;
+  background: #ddf;
 }
 
 #menu a {
-  background: #edd;
+  background: #dde;
   cursor: pointer;
 }
 
@@ -65,7 +65,7 @@ h1 {
 }
 
 #menu a:hover {
-  background: #fdd;
+  background: #ddf;
 }
 
 #menu a:active {
@@ -106,7 +106,7 @@ h2 {
 
 #list th {
   font-weight: bold;
-  background-color: #eee
+  background-color: #eee;
 }
 
 #list .good {
@@ -175,4 +175,8 @@ button:active {
 
 h2 {
   padding-top: 10px;
+}
+
+p {
+  margin-bottom: 10px;
 }

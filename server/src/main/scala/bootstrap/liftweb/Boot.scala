@@ -43,11 +43,11 @@ class Boot {
     // Format documented on the Wiki at http://www.assembla.com/wiki/show/liftweb/SiteMap
     def sitemap() = SiteMap(
       Menu(S ? "Welcome") / "index" 
+//      , Menu(S ? "My Stuff") / "items" / "list"
+      , Menu(S ? "Burglary Reports") / "burglaryReports" / "list"
+//      , Menu(S ? "Commissioner Reports") / "commissionerReports" / "list"
+      , Menu(S ? "Report") / "burglaryReports" / "view" >> Hidden
       , Menu(S ? "Help") / "static" / "help"
-      , Menu(S ? "My Stuff") / "items" / "list"
-      , Menu(S ? "My Reports") / "burglaryReports" / "list"
-      , Menu(S ? "Commissioner Reports") / "commissionerReports" / "list"
-      , Menu(S ? "Report") / "burglaryReports" / "view"
     )
 
     LiftRules.setSiteMapFunc(() => sitemap())
