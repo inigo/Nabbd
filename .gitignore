@@ -1,7 +1,7 @@
 target
 lib_managed
-project/boot
-project/build/target
+server/project/build/target
+server/project/boot
 *.swp
 *~
 
@@ -41,5 +41,3 @@ gae-password.txt
 .DS_Store
 */.DS_Store
 
-# Police properties file with API key
-server/src/main/resources/police.properties
