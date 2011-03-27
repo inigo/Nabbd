@@ -29,8 +29,8 @@ The server is built and run with Maven:
 or with SBT (Scala Build Tool):
     sbt update ~jetty-run
 
-The server requires a nabbd.properties file with mailserver information and an API key
-for the Police API. Edit and rename the existing server/src/main/resources/nabbd.properties,
+The server requires a nabbd.properties file with mailserver information and an API key for
+the Police API. Edit and rename the existing server/src/main/resources/nabbd.properties.template
 and sign up for an API key at http://www.police.uk/api/docs/signup/.
 
 Licensing
