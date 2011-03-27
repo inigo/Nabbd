@@ -1,1 +1,46 @@
-Hello world from Daniel
+Nabbd - an iPhone app and server to record your valuables and help in reporting burglaries.
+
+Developed for the Rewired State National Hack the Government March 2011, by Daniel Rendall,
+Dave Addey, Inigo Surguy and Mohsen Ramezanpoor.
+
+Description
+-----------
+
+If you were burgled, would you have proof of all the valuable items that you own that
+might have been taken? Even if you do, providing a record of what's gone for the police
+and your insurance company is an unpleasant task.
+
+Nabbd allows you to quickly and easily record details all of the valuable items that 
+you own, and take photos of each as supporting evidence.
+
+If you are burgled, then Nabbd will tell you "Don't Panic". It will find the phone 
+number of the local police force (based on your current location) for you so you can
+report the crime. Once you have an incident number, it will send the details of 
+what's been taken to a central server, and email the police. The police can then
+log on to the Nabbd website to see what's been taken, and download it to include in
+their records.
+
+Building
+--------
+
+The server is built and run with Maven:
+    mvn jetty:run
+
+or with SBT (Scala Build Tool):
+    sbt update ~jetty-run
+
+The server requires a nabbd.properties file with mailserver information and an API key
+for the Police API. Edit and rename the existing server/src/main/resources/nabbd.properties,
+and sign up for an API key at http://www.police.uk/api/docs/signup/.
+
+The client code is built with XCode, and requires membership of the iOS Developer Program
+to deploy to an iPhone.
+
+Licensing
+---------
+
+The server application is Copyright (C) 2011 Daniel Rendall and Inigo Surguy. It is 
+licensed under the terms of the GNU General Public License, Version 3, available at 
+http://www.gnu.org/licenses/gpl-3.0-standalone.html.
+
+The iPhone client application is Copyright (C) 2011 Agant Ltd. All rights reserved.

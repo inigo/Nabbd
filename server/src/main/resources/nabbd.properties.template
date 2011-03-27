@@ -1,0 +1,6 @@
+police.api=policeapi2.rkh.co.uk/api/locate-neighbourhood?q=
+police.username=[enter username - see http://www.police.uk/api/docs/signup/ ]
+police.password=[enter password]
+mail.username=[enter mail username]
+mail.password=[enter mail password]
+mail.server=[enter mail server - e.g. smtp.gmail.com]
