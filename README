@@ -33,9 +33,6 @@ The server requires a nabbd.properties file with mailserver information and an A
 for the Police API. Edit and rename the existing server/src/main/resources/nabbd.properties,
 and sign up for an API key at http://www.police.uk/api/docs/signup/.
 
-The client code is built with XCode, and requires membership of the iOS Developer Program
-to deploy to an iPhone.
-
 Licensing
 ---------
 
@@ -43,4 +40,5 @@ The server application is Copyright (C) 2011 Daniel Rendall and Inigo Surguy. It
 licensed under the terms of the GNU General Public License, Version 3, available at 
 http://www.gnu.org/licenses/gpl-3.0-standalone.html.
 
-The iPhone client application is Copyright (C) 2011 Agant Ltd. All rights reserved.
+The client iPhone application is Copyright (C) Agant Ltd., All Rights Reserved, and is
+not present in this repository.
