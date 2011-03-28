@@ -1,12 +1,10 @@
 package uk.org.nabbd
 
 import java.util.Properties
-import model.BurglaryReport
-import net.liftweb.util.JSONParser._
 
-import xml.{XML, Node}
+import xml.XML
 import org.slf4j.LoggerFactory
-import com.gargoylesoftware.htmlunit.{UnexpectedPage, DefaultCredentialsProvider, WebClient}
+import us.monoid.web.Resty
 
 /**
  * Find information on a given police force if provided with a latitude and longitude, using the Police API.
@@ -14,9 +12,8 @@ import com.gargoylesoftware.htmlunit.{UnexpectedPage, DefaultCredentialsProvider
  * @author Inigo Surguy
  * @created 26/03/2011 15:17
  */
-
 object PoliceFinder {
-
+  val log = LoggerFactory.getLogger(PoliceFinder.getClass);
 
   def lookup(lat: String, long: String): Force = {
 
@@ -26,27 +23,12 @@ object PoliceFinder {
     val policeApi = props.getProperty("police.api")
     val policeUsername = props.getProperty("police.username")
     val policePassword = props.getProperty("police.password")
-    val log = LoggerFactory.getLogger(PoliceFinder.getClass);
 
-    val webClient = new WebClient()
-
-    val provider = new DefaultCredentialsProvider()
-    provider.addCredentials(policeUsername, policePassword)
-    webClient.setCredentialsProvider(provider)
+    val r = new Resty()
     val url = "http://" + policeApi + lat + "," + long
-    val response = webClient.getPage(url).asInstanceOf[UnexpectedPage]
-
-    webClient.closeAllWindows
-
-    val text = response.getWebResponse.getContentAsString
-
-    // HORRIBLE but I can't figure out how to do JSON parsing.
-    val forcePos = text.indexOf("force")
-    val colon = text.indexOf(":", forcePos)
-    val quote = text.indexOf("\"", colon)
-    val nextQuote = text.indexOf("\"", quote + 1)
-
-    val forceName = text.substring(quote+1, nextQuote);
+    r.authenticate(url, policeUsername, policePassword.toCharArray)
+    val json = r.json(url)
+    val forceName = r.json(url).get("force")
 
     val policeXml = ((forceDetails \\ "force").filter(_.attribute("id").get.head.text == forceName)).head
 
